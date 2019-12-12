@@ -1,0 +1,443 @@
+/*iPhone*/
+@media screen and (max-width:760px){
+body{
+    text-align: center;
+    font-size: 0.85em;
+    color: #000000;
+    font-family: "游ゴシック";
+}
+
+
+#nav1{
+  display: none;
+}
+#nav2{
+  display: none;
+}
+
+/*メイン系*/
+#main1 {
+    margin: -10px;
+    padding: 0px;
+}
+#main2 {
+    margin: -10px;
+    padding: 0px;
+}
+
+#main_img{
+    width: 100%;
+}
+
+.icon{
+	width: 150px;
+}
+
+.modalContents{
+	font-size: 15px;
+}
+	
+/* モーダルCSS */
+.modalArea {
+  display: none;
+  position: fixed;
+  z-index: 10; /*サイトによってここの数値は調整 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.9);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  width: 400px;
+  height: 600px;
+  max-width: 500px;
+  padding: 10px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/*icon文字表示*/
+.sample1 {
+	width: 250px;
+	overflow: hidden;
+	position: absolute;
+    display: block;
+	padding: 25px 10px 20px 20px;
+	margin-top: 20%;
+    margin-left: 23%;
+	height: 100px;
+}
+.sample1 .caption {
+	font-size:		15px;
+	color:			#fff;
+	padding-top:		60px;
+	padding-right:		50px;
+}
+.sample1 .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;	/* マスクを表示しない */
+	background-color:	rgba(0,0,0,0.8);
+	-webkit-transition:	all 0.6s ease;
+	transition:		all 0.6s ease;
+}
+.sample1:hover .mask {
+	opacity:		1;	/* マスクを表示する */
+	padding-left:		80px;	 /*右にずらす */
+}
+
+
+.sample2 {
+	width: 250px;
+	overflow: hidden;
+	position:absolute;
+    display: block;
+	padding: 30px 10px 20px 20px;
+	margin-top: 20%;
+    margin-left: 23%;
+	height: 100px;
+}
+.sample2 .caption {
+	font-size:		15px;
+	color:			#fff;
+	padding-top:		60px;
+	padding-right:		50px;
+}
+.sample2 .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;	/* マスクを表示しない */
+	background-color:	rgba(0,0,0,0.8);
+	-webkit-transition:	all 0.6s ease;
+	transition:		all 0.6s ease;
+}
+.sample2:hover .mask {
+	opacity:		1;	/* マスクを表示する */
+	padding-left:		70px;	 /*右にずらす */
+}
+}
+
+
+/*iPad*/
+@media screen and (min-width:761px) and (max-width:1024px){
+body{
+    text-align: center;
+    font-size: 0.85em;
+    color: #000000;
+    font-family: "游ゴシック";
+}
+
+
+/*ボタン系*/
+.menu{
+	width: 70px;
+}
+
+#nav1{
+	position:absolute;
+	height: 40px;
+	z-index: 70;
+	width: 100%;
+	padding-top: 0;
+	margin-top: 55%;
+    right: -420px;
+}
+#nav2{
+    position:absolute;
+	height: 40px;
+	z-index: 70;
+	width: 100%;
+	padding-top: 0;
+	margin-top: 122%;
+    right: -420px;
+}
+
+/*メイン系*/
+#main1 {
+    margin: -10px;
+    padding: 0px;
+}
+#main2 {
+    margin: -10px;
+    padding: 0px;
+}
+
+#main_img{
+    width: 100%;
+}
+
+.icon{
+	width: 200px;
+}
+
+.modalContents{
+	font-size: 15px;
+}
+	
+/* モーダルCSS */
+.modalArea {
+  display: none;
+  position: fixed;
+  z-index: 10; /*サイトによってここの数値は調整 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.9);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  width: 400px;
+  height: 600px;
+  max-width: 500px;
+  padding: 10px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/*icon文字表示*/
+.sample1 {
+	width: 280px;
+	overflow: hidden;
+	position: absolute;
+    display: block;
+	padding: 10px 10px 20px 10px;
+	margin-top: 25%;
+    margin-left: 35%;
+	height: 115px;
+}
+.sample1 .caption {
+	font-size:		130%;
+	color:			#fff;
+	padding-top:		60px;
+	padding-right:		50px;
+}
+.sample1 .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;	/* マスクを表示しない */
+	background-color:	rgba(0,0,0,0.8);
+	-webkit-transition:	all 0.6s ease;
+	transition:		all 0.6s ease;
+}
+.sample1:hover .mask {
+	opacity:		1;	/* マスクを表示する */
+	padding-left:		80px;	 /*右にずらす */
+}
+
+
+.sample2 {
+	width: 280px;
+	overflow: hidden;
+	position:absolute;
+    display: block;
+	padding: 15px 10px 20px 10px;
+	margin-top: 25%;
+    margin-left: 35%;
+	height: 100px;
+}
+.sample2 .caption {
+	font-size:		130%;
+	color:			#fff;
+	padding-top:		60px;
+	padding-right:		50px;
+}
+.sample2 .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;	/* マスクを表示しない */
+	background-color:	rgba(0,0,0,0.8);
+	-webkit-transition:	all 0.6s ease;
+	transition:		all 0.6s ease;
+}
+.sample2:hover .mask {
+	opacity:		1;	/* マスクを表示する */
+	padding-left:		70px;	 /*右にずらす */
+}
+}
+
+
+/*PC*/
+@media screen and (min-width:1025px){
+body{
+    text-align: center;
+    font-size: 0.85em;
+    color: #333;
+    font-family: "游ゴシック";
+}
+
+/*ボタン系*/
+.menu{
+	width: 6%;
+}
+
+#nav1{
+	position:absolute;
+	height: 40px;
+	z-index: 70;
+	width: 100%;
+	padding-top: 0;
+	margin-top: 43%;
+    right: -33%;
+}
+#nav2{
+    position:absolute;
+	height: 40px;
+	z-index: 70;
+	width: 100%;
+	padding-top: 0;
+	margin-top: 94%;
+    right: -33%;
+}
+
+/*メイン系*/
+#main1 {
+    margin: -10px;
+    padding: 0px;
+}
+#main2 {
+    margin: 0px;
+    padding-bottom: -10px;
+}
+
+#main_img{
+    width: 100%;
+    max-width: 1440px;
+}
+
+.icon{
+	width: 250px;
+}
+
+.modalContents{
+	font-size: 15px;
+}
+	
+/* モーダルCSS */
+.modalArea {
+  display: none;
+  position: fixed;
+  z-index: 10; /*サイトによってここの数値は調整 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.9);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  width: 400px;
+  height: 600px;
+  max-width: 500px;
+  padding: 10px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/*icon文字表示*/
+.sample1 {
+	width: 400px;
+	overflow: hidden;
+	position: absolute;
+    display: block;
+	padding: 40px 10px 40px 60px;
+	margin-top: 23%;
+    margin-left: 40%;
+	height: 150px;
+}
+.sample1 .caption {
+	font-size:		30px;
+	color:			#fff;
+	padding-top:		95px;
+	padding-right:		50px;
+}
+.sample1 .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;	/* マスクを表示しない */
+	background-color:	rgba(0,0,0,0.8);
+	-webkit-transition:	all 0.6s ease;
+	transition:		all 0.6s ease;
+}
+.sample1:hover .mask {
+	opacity:		1;	/* マスクを表示する */
+	padding-left:		80px;	 /*右にずらす */
+}
+
+
+.sample2 {
+	width: 400px;
+	overflow: hidden;
+	position:absolute;
+    display: block;
+	padding: 30px 10px 20px 60px;
+	margin-top: 23%;
+    margin-left: 40%;
+	height: 150px;
+}
+.sample2 .caption {
+	font-size:		30px;
+	color:			#fff;
+	padding-top:		80px;
+	padding-right:		50px;
+}
+.sample2 .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;	/* マスクを表示しない */
+	background-color:	rgba(0,0,0,0.8);
+	-webkit-transition:	all 0.6s ease;
+	transition:		all 0.6s ease;
+}
+.sample2:hover .mask {
+	opacity:		1;	/* マスクを表示する */
+	padding-left:		70px;	 /*右にずらす */
+}
+}

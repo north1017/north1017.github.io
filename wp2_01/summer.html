@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>夏休み</title>
+    <meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   <script>
+        //ボタン操作
+        jQuery(function($){
+            $('#nav a').click(function () {
+                $('#nav a').removeClass('active');
+                $(this).addClass('active');
+            }).filter(':eq(0)').click();
+        });
+        //ボタンでふわっとスクロール
+        $(function(){
+          $('a[href^="#"]').click(function(){
+            let speed = 500;
+            let href= $(this).attr("href");
+            let target = $(href == "#" || href == "" ? 'html' : href);
+            let position = target.offset().top;
+            $("html, body").animate({scrollTop:position}, speed, "swing");
+            return false;
+          });
+        });
+
+        //モーダル
+        $(function () {
+          $('#sa').click(function(){
+              $('#modalArea').fadeIn();
+          });
+          $('#closeModal , #modalBg').click(function(){
+            $('#modalArea').fadeOut();
+          });
+        });
+        $(function () {
+          $('#us').click(function(){
+              $('#modalArea2').fadeIn();
+          });
+          $('#closeModal , #modalBg2').click(function(){
+            $('#modalArea2').fadeOut();
+          });
+        });
+    </script>
+</head>
+  
+<body>
+    <div>
+        <p id="nav1"><a href="#main2"><img src="image/down.png" class="menu"></a></p>
+        <p id="nav2"><a href="#main1"><img src="image/up.png" class="menu"></a></p>
+    </div>
+
+
+    <div id="fullpage">
+        <div id="main1">
+            <div class="sample1">
+                <img src="image/button2.jpg" class="icon" alt="aqua" title="aqua" align="left">
+                <div class="mask" id="sa">
+                    <div class="caption">アートアクアリウム</div>
+                </div>
+            </div>
+            <img src="image/aqua.JPG" id="main_img">
+        </div>
+        <div id="main2">
+            <div class="sample2">
+                <img src="image/button.jpg" class="icon" alt="reborn" title="reborn"  align="left">
+                <div class="mask" id="us">
+                    <div class="caption">リボーンアートフェス</div>
+                </div>
+            </div>
+            <img src="image/zemi.JPG" id="main_img">
+        </div>
+    </div>
+
+
+    <section id="modalArea" class="modalArea">
+        <div id="modalBg" class="modalBg"></div>
+        <div class="modalWrapper">
+          <div class="modalContents">
+              <h1>アクアリウム</h1>
+              <h2>8月20日</h2>
+                   <p>友人と日本橋で開催していた<br>
+                      アートアクアリウムへ行ってきました！<br>
+                      たくさんの金魚がライトアップされていて<br>
+                      すごく幻想的な世界でした！<br>
+                      日本橋での開催は今年最後とのことなので<br>
+                      行けてよかったなと思います！<br><br>
+                      <img src="image/IMG_3015.JPG" width="100%">
+                </p>
+          </div>
+        </div>
+    </section>
+    <section id="modalArea2" class="modalArea">
+        <div id="modalBg2" class="modalBg"></div>
+        <div class="modalWrapper">
+            <div class="modalContents">
+                <h1>REBORNARTFESTIVAL</h1>
+                <h2>9月9日→8日</h2>
+                   <p>台風の中、中野ゼミは宮城へ行ってきました！<br>
+                      一日目はみんなたどり着くので精いっぱいで<br>
+                      見て回ることができませんでしたが、<br>
+                      二日目にREBORNARTFESTIVALへ行ってきました！<br>
+                      特にシカの展示が印象に残ったので<br>
+                      その時撮った写真を張りました！<br><br>
+                      <img src="image/IMG_3186.JPG" width="100%">
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- モーダルエリアここまで -->
+</body>
+</html>
