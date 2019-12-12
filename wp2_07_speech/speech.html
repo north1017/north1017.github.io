@@ -1,0 +1,171 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ぽちゃっこに質問</title>
+</head>
+<style>
+	body{
+		background-image: url(images3/hai.png);
+		text-align: center;
+		font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+		font-size: 1.5em;
+	}
+	#box{
+		margin: 50px 100px 50px 100px;
+	}
+	#a{
+		font-size: 15px;
+	}
+    #b{
+		font-size: 13px;
+	}
+	.center-box {
+    	text-align:center;
+		margin-bottom: 150px;
+  }
+</style>
+<body>
+<div id="box">
+<div class="center-box">
+	<img id="mic" src="images3/cat.png" width=250px align="left">
+		<p><br>ぽちゃっこに触ってから<br>質問してね</p>
+		<p id="a">ぽちゃっこが答えられることは、<br>動画、大妻女子大学の地図、2.5次元舞台のスケジュール、声優のイベント情報についてだよ！</p>
+        <p id="b">上の言葉にしか反応しません...💦</p>
+		<div id="result-div" class="large-text">何を聞く？</div>
+	</div>
+	<div id="content"></div>
+</div>
+<script>
+  const resultDiv = document.querySelector('#result-div');
+  const micDiv = document.querySelector('#mic');
+	
+  let speakingtime = 0;
+  
+  // 音声認識機能(Chrome)
+  let rec = new webkitSpeechRecognition();
+  let stopped = true;
+  rec.continuous = true;
+  rec.interimResults = false;
+  rec.lang = 'ja-JP';
+
+  micDiv.onclick = function () {
+    if (stopped == true) {
+      stopped = false;
+      resultDiv.innerHTML = "";
+      rec.start();
+    } else {
+      stopped = true;
+      rec.stop();
+    }
+  }
+
+  rec.onstart = function () {
+    console.log('on start');
+    micDiv.setAttribute("src","images3/cat.png");
+    speakingtime = 0;
+  };
+
+  rec.onend = function () {
+    console.log('on end');
+    micDiv.setAttribute("src","images3/cat.png");
+    if (stopped == false) {
+      setTimeout(function () {
+        rec.start();
+      },speakingtime);
+    }
+  };
+
+  rec.onresult = function (e) {
+    rec.stop();
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      if (e.results[i].isFinal) {
+        console.log(e);
+        let text = e.results[i][0].transcript;
+  switch(text) {
+    case "動画":
+      getVideo();
+      break;
+    case "大妻女子大学の地図":
+      getMap();
+      break;
+    case "2.5次元舞台のスケジュール":
+      getMusicalInfo();
+      break;
+	  case "声優のイベント情報":
+      getVoiceActorEvent();
+      break;
+    default:
+      getTextContents(text);
+  }
+        console.log(text);
+        speakingtime = text.length * 200;
+        console.log("estimate:", speakingtime, "ms");
+//        speak(text);
+        resultDiv.innerHTML = text;
+      }
+    }
+  }
+
+
+//ビデオ
+function getVideo() {
+    var URL = '<iframe width="560" height="315" src="https://www.youtube.com/embed/aoCPwWt_wr4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    
+    content.innerHTML = URL;
+}
+
+//ラジオ
+function getMap() {
+  var URL = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.4272684186103!2d139.74102421470403!3d35.691101937039136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c68c884a9f3%3A0x5940dbc0a22ff46e!2z5aSn5aa75aWz5a2Q5aSn5a2m!5e0!3m2!1sja!2sjp!4v1574151334930!5m2!1sja!2sjp" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>';
+  
+  content.innerHTML = URL;
+}
+
+//2.5次元舞台
+function getMusicalInfo() {
+    var iframe = document.createElement('iframe');
+    
+    iframe.width = '400px';
+    iframe.height = '400px';
+    iframe.src = 'https://www.j25musical.jp/stage/';
+    content.appendChild(iframe);
+  }
+function getVoiceActorEvent() {
+    var iframe = document.createElement('iframe');
+    
+    iframe.width = '400px';
+    iframe.height = '400px';
+    iframe.src = 'https://t.pia.jp/pia/tag/tag.do?tagCd=0000037';
+    content.appendChild(iframe);
+  }
+
+  
+	
+  // 発話機能をインスタンス化
+  let msg = new SpeechSynthesisUtterance();
+  let voices = window.speechSynthesis.getVoices();
+
+  function speak(text) {
+    // 以下オプション設定（日本語は効かないもよう。。）
+    msg.voice = voices[7]; // 7:Google 日本人 ja-JP ※他は英語のみ
+    msg.volume = 1.0; // 音量 min 0 ~ max 1
+    msg.rate = 1.0; // 速度 min 0 ~ max 10
+    msg.pitch = 1.0; // 音程 min 0 ~ max 2
+
+    msg.text = text; // 喋る内容
+    msg.lang = 'ja-JP'; // en-US or ja-JP
+    // msg.lang = 'en-US'; // en-US or ja-JP
+
+    // 発話実行
+    speechSynthesis.speak(msg);
+  }
+  
+  // 終了時の処理
+  msg.onend = function (event) {
+    console.log('喋った時間：' + event.elapsedTime + 'ms');
+  }
+
+
+</script>
+</body>
+</html>
